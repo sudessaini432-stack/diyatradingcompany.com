@@ -192,4 +192,3 @@ function AuthPage() {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const __routeRegenTouch = true;
