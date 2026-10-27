@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /auth
+Disallow: /account
+Disallow: /orders
+
+Sitemap: https://diya-bag-studio.lovable.app/sitemap.xml

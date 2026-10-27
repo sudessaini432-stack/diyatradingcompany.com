@@ -1,0 +1,171 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Diya Trading Company design system.
+ * Corporate navy blue + eco green + white, with a gold/amber CTA accent.
+ * All colours are oklch semantic tokens. Never hardcode colours in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-eco: var(--eco);
+  --color-eco-foreground: var(--eco-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --shadow-card: var(--shadow-card);
+  --shadow-lift: var(--shadow-lift);
+  --shadow-gold: var(--shadow-gold);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.23 0.045 258);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.23 0.045 258);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.23 0.045 258);
+
+  --primary: oklch(0.38 0.13 262);
+  --primary-foreground: oklch(0.99 0.004 250);
+  --primary-dark: oklch(0.26 0.1 264);
+
+  --secondary: oklch(0.96 0.012 250);
+  --secondary-foreground: oklch(0.3 0.09 262);
+
+  --muted: oklch(0.966 0.01 240);
+  --muted-foreground: oklch(0.5 0.03 255);
+
+  --accent: oklch(0.95 0.035 160);
+  --accent-foreground: oklch(0.34 0.1 158);
+
+  --eco: oklch(0.56 0.14 157);
+  --eco-foreground: oklch(0.99 0.004 250);
+
+  --gold: oklch(0.76 0.16 68);
+  --gold-foreground: oklch(0.24 0.06 60);
+
+  --whatsapp: oklch(0.63 0.16 150);
+  --whatsapp-foreground: oklch(0.99 0.004 250);
+
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0.004 250);
+  --border: oklch(0.915 0.012 250);
+  --input: oklch(0.9 0.014 250);
+  --ring: oklch(0.55 0.11 255);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.26 0.1 264) 0%, oklch(0.36 0.12 250) 55%, oklch(0.42 0.11 180) 100%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.79 0.15 78), oklch(0.72 0.17 58));
+  --shadow-card: 0 1px 2px oklch(0.26 0.1 264 / 0.06), 0 10px 24px -12px oklch(0.26 0.1 264 / 0.18);
+  --shadow-lift: 0 18px 44px -18px oklch(0.26 0.1 264 / 0.36);
+  --shadow-gold: 0 12px 28px -10px oklch(0.72 0.17 58 / 0.55);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility hero-surface {
+  background-image: var(--gradient-hero);
+}
+
+@utility gold-surface {
+  background-image: var(--gradient-gold);
+}
+
+@utility section-pad {
+  padding-block: 4rem;
+}
+
+@utility shell {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility rise {
+  animation: rise-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
